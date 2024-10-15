@@ -1,3 +1,5 @@
+package come.example;
+
 public class ClothingItem {
     private String name;
     private String category;

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <title>Your Outfit</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+  <h1>Your Outfit Suggestion</h1>
+</header>
+<div class="container">
+  <h2>Based on the selected weather:</h2>
+  <ul>
+    <li th:each="item : ${outfit.items}">
+      <span th:text="${item.name}">Clothing Item</span>
+    </li>
+  </ul>
+  <a href="/generateOutfitPage">Generate Another Outfit</a>
+</div>
+<footer>
+  <p>Powered by Your Closet App</p>
+</footer>
+</body>
+</html>

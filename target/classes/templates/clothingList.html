@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Clothing List</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Center vertically */
+            min-height: 100vh; /* Full height */
+            padding: 20px;
+            overflow: hidden; /* Prevent overflow */
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(63, 81, 181, 0.9); /* Semi-transparent header */
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2em; /* Increase header font size */
+        }
+
+        /* Container Styles */
+        .container {
+            background: white; /* Container background */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 600px; /* Max width for larger screens */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* List Styles */
+        ul {
+            list-style-type: none; /* Remove bullets */
+            width: 100%; /* Full width */
+            padding: 0; /* Remove padding */
+            margin-bottom: 20px; /* Margin for spacing */
+        }
+
+        li {
+            background: #e3f2fd; /* Light background for items */
+            border: 1px solid #bbdefb; /* Border for items */
+            border-radius: 5px; /* Rounded corners */
+            padding: 15px; /* Padding inside list items */
+            margin: 10px 0; /* Margin for spacing */
+            transition: background 0.3s; /* Smooth background transition */
+            cursor: default; /* Change cursor */
+        }
+
+        li:hover {
+            background: #bbdefb; /* Darker background on hover */
+        }
+
+        /* Link Styles */
+        a {
+            margin-top: 20px; /* Space above the link */
+            text-decoration: none; /* Remove underline */
+            color: #3f51b5; /* Link color */
+            padding: 10px 15px; /* Padding around the link */
+            border: 2px solid #3f51b5; /* Border around the link */
+            border-radius: 5px; /* Rounded corners */
+            transition: background 0.3s, color 0.3s; /* Smooth transition */
+            font-weight: bold; /* Bold text */
+        }
+
+        a:hover {
+            background: #3f51b5; /* Background color on hover */
+            color: white; /* Text color on hover */
+        }
+
+        /* Footer Styles */
+        footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            text-align: center;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Your Clothing Items</h1>
+</header>
+<div class="container">
+    <ul>
+        <li th:each="item : ${clothingItems}" th:text="${item.name + ' (' + item.category + ')'}"></li>
+    </ul>
+    <a href="/">Back to Add Clothing Page</a>
+</div>
+<footer>
+    <p>Powered by Your Closet App</p>
+</footer>
+</body>
+</html>

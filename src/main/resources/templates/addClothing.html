@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Closet - Add Clothing</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #3f51b5;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+
+        header:hover {
+            background-color: #303f9f;
+        }
+
+        /* Container Styles */
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Form Styles */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #3f51b5;
+            box-shadow: 0 0 5px rgba(63, 81, 181, 0.5);
+            outline: none;
+        }
+
+        input[type="submit"] {
+            background-color: #3f51b5;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #303f9f;
+            transform: scale(1.05);
+        }
+
+        input[type="submit"]:active {
+            transform: scale(0.95);
+        }
+
+        /* Heading Styles */
+        h2 {
+            margin-top: 20px;
+            text-align: center;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        h2:hover {
+            color: #3f51b5;
+        }
+
+        /* Footer Styles */
+        footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            text-align: center;
+            color: #666;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Closet - Add Clothing Item</h1>
+</header>
+<div class="container">
+    <form action="/addClothing" method="post">
+        <label>Name:</label>
+        <input type="text" name="name" required>
+        <label>Category:</label>
+        <input type="text" name="category" required>
+        <label>Weather (SUNNY, COLD, RAINY, SNOWY, WINDY):</label>
+        <input type="text" name="weather" required>
+        <input type="submit" value="Add Clothing">
+    </form>
+    <!--
+    <h2>Clothing LIST</h2>
+    <form action="/clothingList" method="get">
+        <input type="submit" value="View your clothes">
+    </form>
+    <h2>Generate Outfit</h2>
+    <form action="/generateOutfitPage" method="get">
+        <input type="submit" value="Go to Generate Outfit Page">
+    </form>
+
+    <div th:if="${error}" class="error">
+        <p th:text="${error}"></p>
+    </div>
+    <div th:if="${message}" class="message">
+        <p th:text="${message}"></p>
+    </div>
+    -->
+</div>
+<footer>
+    <p>Powered by Your Closet App</p>
+</footer>
+</body>
+</html>

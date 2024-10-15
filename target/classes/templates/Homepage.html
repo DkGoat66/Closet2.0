@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Closet - Navigation</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Center the content vertically */
+            padding: 20px;
+            min-height: 100vh; /* Ensure full height */
+            overflow: hidden; /* Hide overflow for bubbles */
+            position: relative; /* Position for bubble animation */
+        }
+
+        /* Bubbles */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(63, 81, 181, 0.6); /* Bubble color */
+            opacity: 0.6;
+            animation: rise 5s infinite;
+        }
+
+        @keyframes rise {
+            0% {
+                bottom: -50px;
+                transform: scale(0.5);
+            }
+            100% {
+                bottom: 100%;
+                transform: scale(1);
+            }
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(63, 81, 181, 0.8); /* Transparent header */
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+
+        header:hover {
+            background-color: rgba(48, 63, 159, 0.8);
+        }
+
+        /* Container Styles */
+        .container {
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent container */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column; /* Stacks items vertically */
+            align-items: center; /* Center items horizontally */
+            gap: 20px; /* Increased gap for better spacing */
+            animation: fadeIn 0.5s ease-in;
+            transition: transform 0.3s; /* Added transition for scaling */
+        }
+
+        .container:hover {
+            transform: scale(1.02); /* Slight scaling on hover */
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Button Styles */
+        .nav-button {
+            background-color: #3f51b5;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 15px; /* Increased padding for buttons */
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px; /* Larger font size for buttons */
+            transition: background-color 0.3s, transform 0.2s;
+            width: 100%; /* Make buttons full width */
+        }
+
+        .nav-button:hover {
+            background-color: #303f9f;
+            transform: scale(1.05);
+        }
+
+        /* Footer Styles */
+        footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            text-align: center;
+            color: #666;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%; /* Allow container to take more width on small screens */
+            }
+
+            header {
+                font-size: 1.5em; /* Increase header font size on smaller screens */
+            }
+
+            .nav-button {
+                font-size: 14px; /* Adjust button font size for smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                font-size: 1.2em; /* Further reduce header size on extra small screens */
+            }
+
+            .nav-button {
+                padding: 10px; /* Reduce padding for buttons */
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Welcome to Your Closet</h1>
+</header>
+
+<!-- Bubbles will be generated here -->
+<div id="bubbleContainer"></div>
+
+<div class="container">
+    <h2>Select an Option:</h2>
+    <a href="/addClothing" class="nav-button">Add Clothing Item</a>
+    <a href="/clothingList" class="nav-button">View Clothing List</a>
+    <a href="/generateOutfitPage" class="nav-button">Generate Outfit</a>
+</div>
+<footer>
+    <p>Powered by Your Closet App</p>
+</footer>
+
+<script>
+    // Bubble generation script
+    const bubbleContainer = document.getElementById('bubbleContainer');
+
+    function createBubble() {
+        const bubble = document.createElement('div');
+        const size = Math.random() * 60 + 20; // Bubble size between 20px and 80px
+        bubble.className = 'bubble';
+        bubble.style.width = size + 'px';
+        bubble.style.height = size + 'px';
+        bubble.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
+        bubble.style.animationDuration = (Math.random() * 3 + 2) + 's'; // Random duration between 2s and 5s
+        bubbleContainer.appendChild(bubble);
+
+        // Remove bubble after animation ends
+        bubble.addEventListener('animationend', () => {
+            bubble.remove();
+        });
+    }
+
+    // Create bubbles at intervals
+    setInterval(createBubble, 500); // Create a new bubble every 500ms
+</script>
+</body>
+</html>

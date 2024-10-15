@@ -1,3 +1,4 @@
+package come.example;
 public class WeatherService {
     // Mock function to simulate fetching weather data based on a location
     public String getWeather(String location) {
