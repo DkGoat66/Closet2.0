@@ -1,67 +1,40 @@
 package come.example;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-@Controller
+@RestController // Use RestController instead of Controller
 public class ClosetController {
 
     private Closet closet = new Closet();
 
-    @GetMapping("/")
-    public String index(Model model) {
-        return "Homepage"; // This corresponds to index.html
-    }
-
-    @GetMapping("/Homepage")  // New mapping for the navigation page
-    public String navigation() {
-        return "Homepage"; // This corresponds to navigation.html
-    }
-    @GetMapping("addClothing")
-    public String addClothingPage(){
-        return "addClothing";
-    }
+    // Endpoint to add clothing item via a POST request
     @PostMapping("/addClothing")
     public String addClothingItem(@RequestParam String name,
                                   @RequestParam String category,
-                                  @RequestParam String weather,
-                                  Model model) {
+                                  @RequestParam String weather) {
         WeatherType weatherType;
         try {
             weatherType = WeatherType.valueOf(weather.toUpperCase());
         } catch (IllegalArgumentException e) {
-            model.addAttribute("error", "Invalid weather type.");
-            return "addClothing";
+            return "Error: Invalid weather type.";
         }
 
         ClothingItem item = new ClothingItem(name, category, weatherType);
         closet.addClothingItem(item);
-        model.addAttribute("message", "Added " + item);
-        return "addClothing";
+        return "Added " + item;
     }
 
-    @GetMapping("/generateOutfitPage")
-    public String generateOutfitPage() {
-        return "generateOutfit"; // New page for generating outfits
-    }
-
+    // Endpoint to generate an outfit based on the weather
     @PostMapping("/generateOutfit")
-    public String generateOutfit(@RequestParam String weather, Model model) {
-        Outfit outfit = new Outfit(weather); // Create outfit with weather condition
-        // Add logic to populate the outfit with clothing items based on weather
-        model.addAttribute("outfit", outfit);
-        return "outfit";  // Ensure this corresponds to the correct Thymeleaf template
+    public String generateOutfit(@RequestParam String weather) {
+        Outfit outfit = closet.generateOutfit(weather);
+        return outfit.toString();
     }
 
+    // Endpoint to get the list of all clothing items
     @GetMapping("/clothingList")
-    public String showclothingList(Model model) {
-        List<ClothingItem> items = closet.getAllClothingItems(); // Make sure you have this method in Closet class
-        model.addAttribute("clothingItems", items);
-        return "clothingList"; // This corresponds to clothingList.html
+    public List<ClothingItem> showClothingList() {
+        return closet.getAllClothingItems();
     }
-
 }
