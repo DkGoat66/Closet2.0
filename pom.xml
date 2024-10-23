@@ -45,11 +45,11 @@
 
 
 
-        <!-- Thymeleaf for HTML templating
+        <!-- Thymeleaf for HTML templating -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>-->
+        </dependency>
 
         <!-- Lombok for boilerplate code reduction -->
         <dependency>
