@@ -12,3 +12,10 @@ The Closet Management System is a full-stack Java application designed to help u
 * Spring Boot Backend: Utilizes microservices architecture for scalability and maintainability.
 * Optimized Data Management: PostgreSQL ensures efficient data retrieval and storage, reducing outfit selection time by 20%.
 * User Preferences: Customization features allow users to receive tailored recommendations based on their style and preferences.
+
+## Technologies Used
+* Backend: Java, Spring Boot
+* Database: PostgreSQL
+* Frontend: HTML, CSS, JavaScript
+* APIs: Weather API integration
+* Architecture: Microservices with RESTful API design
