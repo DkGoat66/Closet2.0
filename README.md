@@ -1,10 +1,10 @@
-#Closet Management System
+# Closet Management System
 
 ## Overview
 
 The Closet Management System is a full-stack Java application designed to help users efficiently manage their wardrobes. By leveraging PostgreSQL for data storage and retrieval, the system enhances clothing inventory organization while providing personalized outfit recommendations based on real-time weather conditions.
 
-Features
+## Features
 
 User Wardrobe Management: Users can store and organize their clothing items in a structured inventory.
 
