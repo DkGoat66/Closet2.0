@@ -27,5 +27,10 @@ git clone https://github.com/dkgoat66/closet-management-system.git
 2. Navigate to the project directory:
 
 cd closet-management-system
+3. Set up PostgreSQL database:
+* Install PostgreSQL
+* Create a database named closet_db
+* Configure connection details in application.properties
+
 
 
