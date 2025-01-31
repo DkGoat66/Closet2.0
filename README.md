@@ -25,6 +25,7 @@ The Closet Management System is a full-stack Java application designed to help u
 1. Clone the repository:
 
 `git clone https://github.com/dkgoat66/closet-management-system.git`
+
 2. Navigate to the project directory:
 
 `cd closet-management-system`
