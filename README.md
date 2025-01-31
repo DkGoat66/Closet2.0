@@ -19,3 +19,10 @@ The Closet Management System is a full-stack Java application designed to help u
 * Frontend: HTML, CSS, JavaScript
 * APIs: Weather API integration
 * Architecture: Microservices with RESTful API design
+
+## Installation & Setup
+
+1. Clone the repository:
+git clone https://github.com/dkgoat66/closet-management-system.git
+
+
