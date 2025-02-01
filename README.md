@@ -35,8 +35,10 @@ The Closet Management System is a full-stack Java application designed to help u
 * Create a database named closet_db
 * Configure connection details in application.properties
 4. BUild and run the application:
-  ``mvn clean install
-    mvn spring-boot: run''
+  ```
+  mvn clean install
+  mvn spring-boot:run
+  
 
 
 
