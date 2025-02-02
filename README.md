@@ -38,9 +38,14 @@ The Closet Management System is a full-stack Java application designed to help u
   ```
   mvn clean install
   mvn spring-boot:run
-  ```
-  
-  
+  ``
+## API Endpoints
+
+* User Management
+
+POST /users - Create a new user
+
+GET /users/{id} - Retrieve user details
 
 
 
