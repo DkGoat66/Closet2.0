@@ -46,6 +46,9 @@ The Closet Management System is a full-stack Java application designed to help u
   * POST /users - Create a new user
   * GET /users/{id} - Retrieve user details
 ## Future Enhancement
+* Mobile application support
+* AI-powered outfit recommnendations
+* Integration with fashion brands for clothing suggestions
 
 
 
